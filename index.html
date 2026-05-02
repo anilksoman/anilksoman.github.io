@@ -767,6 +767,62 @@ footer{
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
+/* ─── TESTIMONIALS ─── */
+#testimonials{padding:80px 0;background:var(--paper)}
+.testimonials-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;border:1px solid var(--rule);
+  margin-top:40px;
+}
+.testi-card{
+  padding:36px 32px;
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  display:flex;flex-direction:column;gap:20px;
+}
+.testi-card:nth-child(2n){border-right:none}
+.testi-card:nth-last-child(-n+2){border-bottom:none}
+.testi-context{
+  font-family:'DM Mono',monospace;font-size:.5rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--amber);display:inline-block;
+  padding:2px 8px;border:1px solid rgba(196,154,20,.3);
+  background:rgba(196,154,20,.06);margin-bottom:4px;
+}
+.testi-quote{
+  font-size:1.0625rem;font-style:italic;
+  line-height:1.6;color:var(--ink);
+  border-left:3px solid var(--red);
+  padding-left:18px;flex:1;
+}
+.testi-quote strong{
+  font-style:normal;font-weight:600;
+  color:var(--ink);
+}
+.testi-person{
+  display:flex;flex-direction:column;gap:2px;
+  padding-top:16px;border-top:1px dotted var(--rule);
+}
+.testi-name{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:.9375rem;letter-spacing:-.01em;
+}
+.testi-role{
+  font-family:'DM Mono',monospace;font-size:.5625rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-35);
+}
+.testi-relation{
+  font-family:'DM Mono',monospace;font-size:.5rem;
+  letter-spacing:.08em;color:var(--ink-35);
+  font-style:italic;
+}
+@media(max-width:720px){
+  .testimonials-grid{grid-template-columns:1fr}
+  .testi-card{border-right:none !important}
+  .testi-card:last-child{border-bottom:none}
+}
+
 /* ─── MISC ─── */
 @media(max-width:720px){
   .hero-body{padding:48px 24px 40px}
@@ -790,6 +846,7 @@ footer{
       <a href="#method">Method</a>
       <a href="#proof">Case Studies</a>
       <a href="#about">About</a>
+      <a href="#testimonials">Voices</a>
       <a href="#engage">Engage</a>
       <a href="#contact" class="nav-cta">Start a Conversation</a>
     </div>
@@ -964,6 +1021,7 @@ footer{
       <div>
         <h2 class="sec-title">The Fault Topology<br>Method™</h2>
         <p class="sec-sub">A four-phase forensic process. Not a heuristic checklist. The FTM runs expert judgment and data analysis simultaneously, then looks for convergence — producing findings with quantified confidence levels and business impact estimates.</p>
+        <div style="margin-top:16px;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-35)">Formalised 2024 · New as a standalone service · Built from 23 years of diagnostic pattern recognition</div>
       </div>
     </div>
 
@@ -1031,6 +1089,10 @@ footer{
       <div>
         <h2 class="sec-title">Four faultlines.<br>Four real diagnoses.</h2>
         <p class="sec-sub">Each case study walks through all four FTM phases on a real product engagement — from reconnaissance through to measured outcomes. Abstract concepts become concrete findings become business value.</p>
+        <div style="margin-top:16px;padding:14px 18px;border-left:3px solid var(--amber);background:rgba(196,154,20,.05);font-size:.875rem;color:var(--ink-55);font-family:'DM Mono',monospace;font-size:.6875rem;letter-spacing:.04em;line-height:1.6">
+          <strong style="color:var(--ink);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase">A note on these cases</strong><br>
+          The FTM was formalised in 2024 and is being offered as a standalone service for the first time. These engagements are the source material — the real product work from which the diagnostic patterns were identified and the framework built. Waterloo (2004) is the origin case. PayPal, Cisco, and Amazon are the cases where the method was most fully applied before being named.
+        </div>
       </div>
     </div>
 
@@ -1146,8 +1208,9 @@ footer{
           <span class="case-type">Structural Faultline</span>
           <span class="case-client">Waterloo Air</span>
         </div>
+        <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;border:1px solid rgba(196,154,20,.3);display:inline-block;padding:2px 8px;background:rgba(196,154,20,.06)">Origin Case · 2004 · Where the diagnostic instinct first appeared</div>
         <h3>The Hidden Cost of Expert Paralysis</h3>
-        <p>A paper-based product selector was costing engineers 18 minutes per decision. The interface presented all parameters equally — experts needed progressive filtering based on how they actually think.</p>
+        <p>Before the framework had a name — a paper-based product selector was costing engineers 18 minutes per decision. The interface presented all parameters equally. Experts needed progressive filtering based on how they actually think. This engagement became the seed of what is now the FTM.</p>
         <div class="case-metrics">
           <div class="metric-item">
             <span class="metric-val">3×</span>
@@ -1198,9 +1261,15 @@ footer{
 
     <div class="about-grid fade-in">
       <div>
-        <p>I started my career building enterprise tools before "user experience" was a job title — which means I understand how products accumulate debt, because I watched it happen from the inside. Over 23 years and assignments spanning fintech, enterprise SaaS, pharma, industrial, telecom, and consumer products, I built what I now call the Fault Topology Method™: a forensic process for mapping product failure with the same rigour that engineers apply to structural failure.</p>
-        <p>The psychological layer of the framework — drawing on John Vervaeke's relevance realization, Karl Friston's predictive processing, and Kahneman and Tversky's prospect theory — reflects an ongoing commitment to understanding <em>why</em> products break at a cognitive level, not just a usability level. This is what the MA in Psychology (currently in progress) is for: not credentialism, but conceptual depth.</p>
-        <p>I am based in Bengaluru and work with global teams remotely. The distance never matters — the methodology is built for asynchronous collaboration, and most of the best diagnostic work happens in the data, not in the room.</p>
+        <p>I started my career building enterprise tools before "user experience" was a job title. What that meant in practice: I watched products accumulate debt from the inside — the stakeholder override that nobody documented, the legacy pattern nobody questioned, the metric nobody was watching. Twenty-three years of that leaves a residue. You start to see the shape of failure before you can name it.</p>
+
+        <p>The first time I noticed I was diagnosing rather than designing was at Waterloo Air in 2004. Engineers were taking 18 minutes to make a product selection decision the system was supposed to simplify. I didn't run a usability study. I watched how experts actually thought — what they reached for first, what they ignored — and rebuilt the information architecture around that sequence. Decision time dropped to 6 minutes. I didn't have a name for what I'd done. I just knew it wasn't design. It was closer to forensics.</p>
+
+        <p>That instinct compounded across IBM, Amazon, Cognizant, and the Fortune 500 engagements at Intuit, PayPal, and Cisco. The same pattern kept appearing: teams optimising the metrics they measured, going blind to damage accumulating in the gaps. By the time I was running the PayPal dispute resolution audit, I was doing the same five diagnostic moves every time — I just hadn't formalised them.</p>
+
+        <p><strong>The Fault Topology Method™ was codified in 2024.</strong> It is not a retrospective label on 23 years of consulting. It is what those 23 years produced — a structured forensic process I am now offering as a standalone service for the first time. The psychological layer, drawing on Vervaeke's relevance realization, Friston's predictive processing, and Kahneman's prospect theory, was added during the formalisation — not to decorate the framework, but because it finally gave language to what I had been observing at a cognitive level across every engagement. The MA in Psychology (currently in progress) is the same project: not credentialism, but conceptual precision.</p>
+
+        <p>I am based in Bengaluru and work with global teams remotely. The methodology is built for asynchronous collaboration — most of the best diagnostic work happens in the data, not in the room.</p>
 
         <div class="about-timeline">
           <div class="tl-entry">
@@ -1309,12 +1378,96 @@ footer{
   </div>
 </section>
 
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+  <div class="wrap" style="padding-top:80px;padding-bottom:80px">
+    <div class="sec-head fade-in">
+      <div>
+        <span class="sec-num">06</span>
+        <span class="sec-tag">Voices</span>
+      </div>
+      <div>
+        <h2 class="sec-title">What collaborators<br>observed.</h2>
+        <p class="sec-sub">Four perspectives — each placed at the point in the story they speak to most directly. The diagnostic instinct. The analytical rigour. The psychological depth. The origin.</p>
+      </div>
+    </div>
+
+    <div class="testimonials-grid fade-in">
+
+      <!-- Alok Jain — validates diagnostic / forensic rigour — placed here after About -->
+      <div class="testi-card">
+        <div>
+          <span class="testi-context">On the diagnostic instinct</span>
+          <div class="testi-quote">
+            "Anil brings together sharp creative instincts with a rigorous, detail-driven approach to design. <strong>He moves fluidly between disciplines — yet somehow manages to make the connections feel seamless and natural.</strong> I've seen him take ambiguous concepts and turn them into experiences that not only look great, but also solve real problems for users. It's never just about making something 'look good' — it's about finding a solution that resonates and pushes the work to a higher level."
+          </div>
+        </div>
+        <div class="testi-person">
+          <span class="testi-name">Alok Jain</span>
+          <span class="testi-role">Founder &amp; CEO, DoReveal — AI-Assisted Qual Research</span>
+          <span class="testi-relation">Worked with Anil on the same team · LinkedIn, Sep 2025</span>
+        </div>
+      </div>
+
+      <!-- Ananda Gupta — validates the psychological framework depth -->
+      <div class="testi-card">
+        <div>
+          <span class="testi-context">On the psychological framework depth</span>
+          <div class="testi-quote">
+            "Anil brings 25+ years of industry experience to the table, and it shows in every interaction and product he touches. <strong>He has a rare ability to tell a story that links back to the human need behind the screen — a concept rooted in relevance and predictive processing that makes you see design in a whole new light.</strong> He's the kind of person who doesn't just lead — you can feel him quietly pushing for innovation, ensuring every solution is both creatively fresh and business-aligned."
+          </div>
+        </div>
+        <div class="testi-person">
+          <span class="testi-name">Ananda Gupta</span>
+          <span class="testi-role">Work hard, play harder</span>
+          <span class="testi-relation">Worked with Anil on the same team · LinkedIn, Sep 2025</span>
+        </div>
+      </div>
+
+      <!-- Solomon Antony — validates analytical / data layer -->
+      <div class="testi-card">
+        <div>
+          <span class="testi-context">On the analytical rigour</span>
+          <div class="testi-quote">
+            "I've had the pleasure of collaborating with Anil Soman over the years, witnessing firsthand his exceptional talent as a Product Design Leader. <strong>His technical capability and business acumen were demonstrated through his implementation of just-in-time training for Amazon vendors, which he built using AWS analytics and ML services based on Pareto principles.</strong> His thought leadership in conceptualising and implementing user-focused product solutions, combined with his strategic vision, makes him an invaluable asset to any team."
+          </div>
+        </div>
+        <div class="testi-person">
+          <span class="testi-name">Solomon Antony</span>
+          <span class="testi-role">WW Specialist, Data Analytics and AI</span>
+          <span class="testi-relation">Worked with Anil on the same team · LinkedIn, Sep 2025</span>
+        </div>
+      </div>
+
+      <!-- Sunil Malhotra — validates the Ideafarms / Waterloo origin era -->
+      <div class="testi-card">
+        <div>
+          <span class="testi-context">On the origin years — Ideafarms era</span>
+          <div class="testi-quote">
+            "Anil exemplifies a can-do attitude and often delivers beyond expectations. <strong>His quiet determination is deceptive. In the early days of Ideafarms, Anil's effort became the pillar upon which we built our first client base. His sharp understanding of ability and experimental mindset delivered surprising results: his attempt to simulate user experiences using a mixture of tools had created prototypes that easily passed as final products.</strong>"
+          </div>
+        </div>
+        <div class="testi-person">
+          <span class="testi-name">Sunil Malhotra</span>
+          <span class="testi-role">Founder, Ideafarms · Author · White Light Synthesiser</span>
+          <span class="testi-relation">Sunil was senior to Anil at Ideafarms · LinkedIn, Sep 2025</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:24px;border:1px solid var(--rule);padding:20px 28px;font-size:.875rem;color:var(--ink-55);font-style:italic;" class="fade-in">
+      All recommendations are publicly visible on <a href="https://www.linkedin.com/in/anilksoman/" target="_blank" rel="noopener" style="color:var(--red);border-bottom:1px solid rgba(184,48,37,.3)">LinkedIn → Anil Soman</a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── FOR WHOM ─── -->
 <section id="for-whom">
   <div class="wrap" style="padding-top:80px;padding-bottom:80px">
     <div class="sec-head fade-in">
       <div>
-        <span class="sec-num">06</span>
+        <span class="sec-num">07</span>
         <span class="sec-tag">Right Fit</span>
       </div>
       <div>
@@ -1353,7 +1506,7 @@ footer{
   <div class="wrap" style="padding-top:80px;padding-bottom:80px">
     <div class="sec-head fade-in">
       <div>
-        <span class="sec-num">07</span>
+        <span class="sec-num">08</span>
         <span class="sec-tag">How We Work</span>
       </div>
       <div>
@@ -1487,7 +1640,7 @@ footer{
       <br>
       <div class="contact-alt">
         <a href="https://www.linkedin.com/in/anilksoman/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://anilksoman.github.io/ux_forensic_audit/">The Fault Topology Method™ →</a>
+        <a href="https://anilksoman.github.io/ux_forensic_audit/" target="_blank" rel="noopener">The Fault Topology Method™ →</a>
         <a href="https://anilsoman.substack.com/" target="_blank" rel="noopener">Substack</a>
         <a href="https://www.credly.com/users/anil-soman/badges" target="_blank" rel="noopener">Credentials</a>
         <a href="mailto:anilksoman@gmail.com">anilksoman@gmail.com</a>
@@ -1506,7 +1659,7 @@ footer{
     <a href="#hero">Top</a>
     <a href="#services">Services</a>
     <a href="#proof">Case Studies</a>
-    <a href="index.html">FTM Framework</a>
+    <a href="https://anilksoman.github.io/ux_forensic_audit/" target="_blank" rel="noopener">FTM Framework</a>
     <a href="https://www.linkedin.com/in/anilksoman/" target="_blank">LinkedIn</a>
     <a href="mailto:anilksoman@gmail.com">Email</a>
   </div>
