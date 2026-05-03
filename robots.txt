@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anilksoman.github.io/sitemap.xml
